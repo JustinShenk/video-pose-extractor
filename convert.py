@@ -22,6 +22,7 @@ import subprocess
 # Initialize data
 positions = None
 
+
 def movieToFrames(moviePath, movieArgs):
     frameRate, startTime, duration = movieArgs
     framesDir = 'frames'
@@ -46,7 +47,7 @@ def main(args):
     parser = argparse.ArgumentParser(
         description="Extract human pose from image(s) or video")
     parser.add_argument("-i", "--inputFile")
-    parser.add_argument("-o", "--outputFile", default="pose")
+    parser.add_argument("-o", "--outputFile", default ="output")
     parser.add_argument("-t", "--duration",
                         help="duration in hh:mm:ss", default='00:00:05')
     parser.add_argument("-s", "--startTime", help="start time in hh:mm:ss")
@@ -331,8 +332,8 @@ def main(args):
         plt.imshow(canvas[:, :, [2, 1, 0]])
         fig = matplotlib.pyplot.gcf()
         fig.set_size_inches(12, 12)
-        cv.imwrite('{}_{}.png'.format(args.outputFile, currentFrame if currentFrame > 0 else
-                                 ''), canvas)
+        cv.imwrite('{}{}.png'.format(args.outputFile,
+                                     '_' + str(currentFrame)), canvas)
         print "saved figure: " + str(currentFrame)
         currentFrame += 1
 
@@ -342,6 +343,6 @@ if __name__ == "__main__":
     import getopt
     try:
         main(sys.argv[1:])
-    finally:        
+    finally:
         if positions is not None:
             np.save('positions.npy', positions)
