@@ -68,7 +68,7 @@ def main(args):
             oriImg = cv.imread(images[0])
         else:
             oriImg = cv.imread(args.inputFile)
-            images = [oriImg]
+            images = [args.inputFile]
     currentFrame = 0
 
     # Setup model
