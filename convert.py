@@ -59,9 +59,11 @@ def main(args):
     # Get list of images
     if args.inputFolder is not None:  # Load from folder
         images = os.listdir(args.inputFolder)
+        images = [os.path.join(args.inputFolder,x) for x in images]
+        print images, args.name
         if len(images) < 1:
             print "Error: no images found in", args.inputFolder
-            sys.exit()
+            sys.exit()        
         if args.name is not None:
             images = [x for x in images if args.name in x]
         oriImg = cv.imread(images[0])  # B,G,R order
