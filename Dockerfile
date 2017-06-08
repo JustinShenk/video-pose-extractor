@@ -19,30 +19,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libsnappy-dev \
         protobuf-compiler \
         python-dev \
+        python-opencv \
+        python-matplotlib \
         python-numpy \
         python-pip \
         python-setuptools \
         python-scipy && \
     rm -rf /var/lib/apt/lists/*
 
-
-# Install useful Python packages using apt-get to avoid version incompatibilities with Tensorflow binary
-# especially numpy, scipy, skimage and sklearn (see https://github.com/tensorflow/tensorflow/issues/2034)
-RUN apt-get update && apt-get install -y \
-		python-numpy \
-		python-scipy \
-		python-nose \
-		python-h5py \
-		python-skimage \
-		python-matplotlib \
-		python-pandas \
-		python-sklearn \
-		python-sympy \
-		python-opencv \
-		&& \
-	apt-get clean && \
-	apt-get autoremove && \
-	rm -rf /var/lib/apt/lists/*
 
 ENV CAFFE_ROOT=/opt/caffe
 WORKDIR $CAFFE_ROOT
@@ -66,13 +50,14 @@ RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 WORKDIR /root
 
 COPY requirements.txt /root
-RUN cd /root && pip install --requirement /root/requirements.txt
+RUN cd /root && pip install --requirement requirements.txt
 
 COPY convert.py /root
 COPY util.py /root
 COPY config_reader.py /root
 COPY config /root
 COPY README.md /root
+COPY model/_trained_COCO/pose_deploy.prototxt /root/model/_trained_COCO
 
 # Download pre-trained model
 RUN cd /root && mkdir -p model/_trained_COCO && \
