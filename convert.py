@@ -58,9 +58,8 @@ def main(args):
 
     # Get list of images
     if args.inputFolder is not None:  # Load from folder
-        images = os.listdir(args.inputFolder)
-        images = [os.path.join(args.inputFolder,x) for x in images]
-        print images, args.name
+        images = os.listdir(os.path.join('.', args.inputFolder)
+        images = [os.path.join(args.inputFolder, img) for img in images]
         if len(images) < 1:
             print "Error: no images found in", args.inputFolder
             sys.exit()        
@@ -218,7 +217,7 @@ def main(args):
                                 score_midpts) / len(score_midpts) + min(0.5 * oriImg.shape[0] / norm - 1, 0)
                         except ZeroDivisionError:
                             print "Zero Division Error Encountered"
-                            sys.exit()
+                            score_with_dist_prior = 0
                         criterion1 = len(np.nonzero(score_midpts > param['thre2'])[
                                          0]) > 0.8 * len(score_midpts)
                         criterion2 = score_with_dist_prior > 0
