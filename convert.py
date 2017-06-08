@@ -336,9 +336,10 @@ def main(args):
         plt.imshow(canvas[:, :, [2, 1, 0]])
         fig = matplotlib.pyplot.gcf()
         fig.set_size_inches(12, 12)
-        cv.imwrite('{}{}.png'.format(args.outputFile,
-                                     '_' + str(currentFrame)), canvas)
-        print "saved figure: " + str(currentFrame)
+        outputPath = '{}{}{}.png'.format(args.inputFolder if args.inputFolder else '', args.outputFile,
+                                     '_' + str(currentFrame))
+        cv.imwrite(outputPath, canvas)
+        print "saved frame to", outputPath
         currentFrame += 1
 
 
