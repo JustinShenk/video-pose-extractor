@@ -1,0 +1,4 @@
+jupyter
+configobj
+ipykernel
+Pillow
