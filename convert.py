@@ -46,7 +46,7 @@ def main(args):
         description="Extract human pose from image(s) or video")
     parser.add_argument("-i", "--inputFile")
     parser.add_argument("-o", "--outputFile", default="output")
-    parser.add_argument("-n", "--name", default="")
+    parser.add_argument("-n", "--name")
     parser.add_argument("-t", "--duration",
                         help="duration in hh:mm:ss", default='00:00:05')
     parser.add_argument("-s", "--startTime", help="start time in hh:mm:ss")
@@ -59,7 +59,11 @@ def main(args):
     # Get list of images
     if args.inputFolder is not None:  # Load from folder
         images = os.listdir(args.inputFolder)
-        images = [x for x in images if args.name in x]
+        if len(images) < 1:
+            print "Error: no images found in", args.inputFolder
+            sys.exit()
+        if args.name:
+            images = [x for x in images if args.name in x]
         oriImg = cv.imread(images[0])  # B,G,R order
     elif args.inputFile is not None:
         if any(ext in args.inputFile for ext in ['.mov', '.mp4', '.avi']):
