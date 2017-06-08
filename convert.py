@@ -58,7 +58,7 @@ def main(args):
 
     # Get list of images
     if args.inputFolder is not None:  # Load from folder
-        images = os.listdir(os.path.join('.', args.inputFolder)
+        images = os.listdir(os.path.join('.', args.inputFolder))
         images = [os.path.join(args.inputFolder, img) for img in images]
         if len(images) < 1:
             print "Error: no images found in", args.inputFolder
