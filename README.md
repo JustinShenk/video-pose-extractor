@@ -17,6 +17,14 @@ From the command line:
 
 `docker pull justinshenk/get-humans`
 
+or build it locally
+
+```
+git clone https://github.com/justinshenk/get-humans.git
+cd get-humans
+docker build -t justinshenk/get-humans:cpu -f .
+```
+
 ### Image ###
 
 `python convert.py -i [image]`
