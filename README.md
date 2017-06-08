@@ -1,15 +1,13 @@
 # get-humans
-Dockerfile and instructions for human pose estimation implementation using Caffe, OpenCV 3.1.0 and Python 2.7.
+- "Nature is a language can't you read?" - The Smiths
 
-- "Nature is a language, can't you read?" - The Smiths
-
-Dockerized, minimal implementation of Cao et al.'s [repository](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation). 
+Dockerized, minimal implementation of Cao et al.'s [repository](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) including Caffe, OpenCV and Python 2.7.
 
 Includes:
 - CPU Caffe implementation
 - python bindings + OpenCV for happy hacking
 - easy-to-use video-to-images script for pose finding in videos
-- dumps limb data into a file for later analysis and modeling
+- dump limb data into a file for later analysis and modeling
 
 ## Getting started
 
@@ -31,7 +29,7 @@ docker build -t justinshenk/get-humans:cpu -f .
 
 `python convert.py -i [image]`
 
-### Video ### 
+### Video ###
 
 `python convert.py -i [input_file] -s [start_time] -t [duration] -r [frame_rate]`
 
