@@ -46,6 +46,7 @@ def main(args):
         description="Extract human pose from image(s) or video")
     parser.add_argument("-i", "--inputFile")
     parser.add_argument("-o", "--outputFile", default="output")
+    parser.add_argument("-n", "--name")
     parser.add_argument("-t", "--duration",
                         help="duration in hh:mm:ss", default='00:00:05')
     parser.add_argument("-s", "--startTime", help="start time in hh:mm:ss")
