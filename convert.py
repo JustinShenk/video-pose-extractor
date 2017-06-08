@@ -62,7 +62,7 @@ def main(args):
         if len(images) < 1:
             print "Error: no images found in", args.inputFolder
             sys.exit()
-        if args.name:
+        if args.name is not None:
             images = [x for x in images if args.name in x]
         oriImg = cv.imread(images[0])  # B,G,R order
     elif args.inputFile is not None:
