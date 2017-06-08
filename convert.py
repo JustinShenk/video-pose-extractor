@@ -26,7 +26,6 @@ positions = None
 def movieToFrames(moviePath, movieArgs):
     frameRate, startTime, duration = movieArgs
     framesDir = 'frames'
-    print frameRate, startTime, duration
     if not os.path.exists(framesDir):
         os.makedirs(framesDir)
     cmd = 'avconv -i {} {} {} {} -f image2 \'frames/%04d.png\''.format(
@@ -34,7 +33,6 @@ def movieToFrames(moviePath, movieArgs):
         '-r ' + str(frameRate),
         '-ss ' + startTime,
         '-t ' + duration)
-    print "cmd:", cmd
     subprocess.call(
         cmd, shell=True)
     images = os.listdir(os.path.join('.', framesDir))
@@ -47,18 +45,18 @@ def main(args):
     parser = argparse.ArgumentParser(
         description="Extract human pose from image(s) or video")
     parser.add_argument("-i", "--inputFile")
-    parser.add_argument("-o", "--outputFile", default ="output")
+    parser.add_argument("-o", "--outputFile", default="output")
     parser.add_argument("-t", "--duration",
                         help="duration in hh:mm:ss", default='00:00:05')
     parser.add_argument("-s", "--startTime", help="start time in hh:mm:ss")
     parser.add_argument("-r", "--frameRate",
                         help="frames per second", type=int, default=2)
-    parser.add_argument("-f", "--inputfolder", default=None)
+    parser.add_argument("-f", "--inputFolder", default=None)
     args = parser.parse_args()
     framesDir = 'frames'
 
     # Get list of images
-    if args.inputfolder is not None:  # Load from folder
+    if args.inputFolder is not None:  # Load from folder
         images = os.listdir(args.inputFolder)
         images = [x for x in images if name in x]
         oriImg = cv.imread(images[0])  # B,G,R order

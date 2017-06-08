@@ -65,7 +65,14 @@ RUN echo "$CAFFE_ROOT/build/lib" >> /etc/ld.so.conf.d/caffe.conf && ldconfig
 
 WORKDIR /root
 
-ADD . /root
+COPY requirements.txt /root
+RUN cd /root && pip install --requirement /root/requirements.txt
+
+COPY convert.py /root
+COPY util.py /root
+COPY config_ready.py /root
+COPY config /root
+COPY README.md /root
 
 # Download pre-trained model
 RUN cd /root && mkdir -p model/_trained_COCO && \
