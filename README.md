@@ -1,6 +1,8 @@
 # get-humans
 Dockerfile and instructions for human pose estimation implementation using Caffe, OpenCV 3.1.0 and Python 2.7.
 
+- "Nature is a language, can't you read?" - The Smiths
+
 Dockerized, minimal implementation of Cao et al.'s [repository](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation). 
 
 Includes:
