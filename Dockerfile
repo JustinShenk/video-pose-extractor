@@ -70,7 +70,7 @@ RUN cd /root && pip install --requirement /root/requirements.txt
 
 COPY convert.py /root
 COPY util.py /root
-COPY config_ready.py /root
+COPY config_reader.py /root
 COPY config /root
 COPY README.md /root
 
