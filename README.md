@@ -1,4 +1,4 @@
-# get-humans
+# Video Pose Extractor
 - "Nature is a language can't you read?" - The Smiths
 
 Dockerized, minimal implementation of Cao et al.'s [repository](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) including Caffe, OpenCV and Python 2.7.
@@ -15,14 +15,14 @@ Includes:
 
 From the command line:
 
-`docker pull justinshenk/get-humans`
+`docker pull justinshenk/pose-extractor`
 
 or build it locally
 
 ```
-git clone https://github.com/justinshenk/get-humans.git
-cd get-humans
-docker build -t justinshenk/get-humans:cpu -f .
+git clone https://github.com/justinshenk/video-pose-extractor.git
+cd video-pose-extractor
+docker build -t justinshenk/pose-extractor:cpu -f .
 ```
 
 ### Image ###
