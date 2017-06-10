@@ -1,5 +1,5 @@
 # get-humans
-- "Nature is a language can't you read?" - The Smiths
+*"Nature is a language can't you read?" - The Smiths*
 
 Dockerized, minimal implementation of Cao et al.'s [repository](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) including Caffe, OpenCV and Python 2.7.
 
@@ -9,13 +9,17 @@ Includes:
 - easy-to-use video-to-images script for pose finding in videos
 - dump limb data into a file for later analysis and modeling
 
+## Demo
+
+![demo_0.png](demo_0.png)
+
 ## Getting started
 
 [Install Docker](https://www.docker.com/community-edition#/download)
 
 From the command line:
 
-`docker pull justinshenk/get-humans`
+`docker pull justinshenk/pose-extractor`
 
 or build it locally
 
