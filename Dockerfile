@@ -57,11 +57,11 @@ COPY util.py /root
 COPY config_reader.py /root
 COPY config /root
 COPY README.md /root
-COPY model/_trained_COCO/pose_deploy.prototxt /root/model/_trained_COCO
 
 # Download pre-trained model
 RUN cd /root && mkdir -p model/_trained_COCO && \
 	wget -nc --directory-prefix=model/_trained_COCO/ http://posefs1.perception.cs.cmu.edu/Users/ZheCao/pose_iter_440000.caffemodel
+COPY model/_trained_COCO/pose_deploy.prototxt /root/model/_trained_COCO
 
 # Set up notebook config
 COPY jupyter_notebook_config.py /root/.jupyter/
