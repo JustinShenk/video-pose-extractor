@@ -26,7 +26,7 @@ or build it locally
 ```
 git clone https://github.com/justinshenk/video-pose-extractor.git
 cd video-pose-extractor
-docker build -t justinshenk/pose-extractor:cpu -f .
+docker build -t justinshenk/pose-extractor:cpu .
 ```
 
 ### Image ###
