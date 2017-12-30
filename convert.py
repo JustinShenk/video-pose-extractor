@@ -1,3 +1,5 @@
+#!/usr/local/bin/python
+
 # From https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation
 # Based on @ZheC's repo
 # Modifications by @JustinShenk
