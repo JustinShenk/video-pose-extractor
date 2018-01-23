@@ -21,9 +21,13 @@ From the command line:
 
 `docker pull justinshenk/pose-extractor`
 
+followed by 
+
+`docker run -it -v $(pwd):/root/notebook --name pose justinshenk/pose-extractor`
+
 or build it locally
 
-```
+```bash
 git clone https://github.com/justinshenk/video-pose-extractor.git
 cd video-pose-extractor
 docker build -t justinshenk/pose-extractor:cpu .
