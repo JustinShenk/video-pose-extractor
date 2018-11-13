@@ -32,5 +32,6 @@ def config_reader():
 
     return param, model
 
+
 if __name__ == "__main__":
     config_reader()
