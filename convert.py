@@ -30,7 +30,7 @@ def movieToFrames(moviePath, movieArgs):
     framesDir = 'frames'
     if not os.path.exists(framesDir):
         os.makedirs(framesDir)
-    cmd = 'avconv -i {} {} {} {} -f image2 \'frames/%04d.png\''.format(
+    cmd = 'ffmpeg -i {} {} {} {} -f image2 \'frames/%04d.png\''.format(
         moviePath, '-r ' + str(frameRate), '-ss ' + startTime,
         '-t ' + duration)
     subprocess.call(cmd, shell=True)
