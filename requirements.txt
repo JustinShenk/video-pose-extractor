@@ -1,4 +1,2 @@
-jupyter
 configobj
-ipykernel
 Pillow
