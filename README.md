@@ -3,6 +3,8 @@
 
 Dockerized, minimal implementation of Cao et al.'s [repository](https://github.com/ZheC/Realtime_Multi-Person_Pose_Estimation) including Caffe, OpenCV and Python 2.7.
 
+NOTE: This repo is not actively maintained. If you have an issue, please post it in Issues.
+
 Includes:
 - CPU Caffe implementation
 - python bindings + OpenCV for happy hacking
